@@ -13,3 +13,14 @@ describe('GET', () => {
     expect(response.text).to.equal('Hello, Github Actions!');
   })
 })
+
+describe("GET", () => {
+  it("returns HTTP 200", async () => {
+    const response = await request(app).get("/health");
+    expect(response.status).to.equal(200);
+  });
+  it("returns expected greeting", async () => {
+    const response = await request(app).get("/health");
+    expect(response.text).to.equal("Hello, Health check");
+  });
+});
